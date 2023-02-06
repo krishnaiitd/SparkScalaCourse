@@ -69,25 +69,43 @@ object StackOverflow75354293 {
         .mapValues(x => x._1 / x._2)
         .sortByKey(ascending = true)
     avg_points_dataset2.collect().foreach(println)
-    // Lots going on here...
-    // We are starting with an RDD of form (age, numFriends) where age is the KEY and numFriends is the VALUE
-    // We use mapValues to convert each numFriends value to a tuple of (numFriends, 1)
-    // Then we use reduceByKey to sum up the total numFriends and total instances for each age, by
-    // adding together all the numFriends values and 1's respectively.
-//    val totalsByAgePair = rdd.mapValues(x => (x, 1))
-////    totalsByAgePair.take(5).foreach(println)
-//
-//    val totalsByAge = totalsByAgePair.reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
-////    totalsByAge.take(5).foreach(println)
-//    // So now we have tuples of (age, (totalFriends, totalInstances))
-//    // To compute the average we divide totalFriends / totalInstances for each age.
-//    val averagesByAge = totalsByAge.mapValues(x => x._1 / x._2)
-//
-//    // Collect the results from the RDD (This kicks off computing the DAG and actually executes the job)
-//    val results = averagesByAge.collect()
-//
-//    // Sort and print the final results.
-//    results.sorted.take(5).foreach(println)
+
+//    OUT PUT Of above code in my local system
+    //    +---------+-----------+
+    //|player_no|sum(points)|
+    //+---------+-----------+
+    //|        1|       66.0|
+    //|        2|       33.0|
+    //|        3|       78.0|
+    //+---------+-----------+
+    //
+    //+---------+-----+
+    //|player_no|count|
+    //+---------+-----+
+    //|        1|    3|
+    //|        2|    2|
+    //|        3|    3|
+    //+---------+-----+
+    //
+    //+---------+-----------+
+    //|player_no|avg(points)|
+    //+---------+-----------+
+    //|        1|       22.0|
+    //|        2|       16.5|
+    //|        3|       26.0|
+    //+---------+-----------+
+    //
+    //(1,66.0)
+    //(2,33.0)
+    //(3,78.0)
+    //(1,3)
+    //(2,2)
+    //(3,3)
+    //(1,22.0)
+    //(2,16.5)
+    //(3,26.0)
+    //
+    //Process finished with exit code 0
   }
 
 }
