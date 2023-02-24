@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/krishna/Documents/ApacheSparkWithScala/SparkScalaCourse/src/main/scala/com/sundogsoftware/spark/HelloWorld.scala:39:7: A try without a catch or finally is equivalent to putting its body in a block; no exceptions are handled.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      try Option(Timestamp.valueOf(batchFrom))[0m
+[0m[[0m[33mwarn[0m] [0m[0m      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

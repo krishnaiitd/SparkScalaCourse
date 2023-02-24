@@ -12,16 +12,14 @@ object TotalSpentByCustomerDataset {
 
   /** Our main function where the action happens */
   def main(args: Array[String]) {
-   
+
     // Set the log level to only print errors
     Logger.getLogger("org").setLevel(Level.ERROR)
 
     // Create a SparkSession using every core of the local machine
-    val spark = SparkSession
-      .builder
+    val spark = SparkSession.builder
       .appName("TotalSpentByCustomer")
       .master("local[*]")
-      .config("spark.sql.warehouse.dir", "file:///C:/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
       .getOrCreate()
 
     val customerOrdersSchema = new StructType()
@@ -34,13 +32,13 @@ object TotalSpentByCustomerDataset {
       .schema(customerOrdersSchema)
       .csv("data/customer-orders.csv")
       .as[CustomerOrders]
-    
+
     val totalByCustomer = customerDS
       .groupBy("cust_id")
-      .agg(round(sum("amount_spent"), 2)
-        .alias("total_spent"))
+      .agg(
+        round(sum("amount_spent"), 2)
+          .alias("total_spent"))
 
     totalByCustomer.show(totalByCustomer.count.toInt)
   }
 }
-
