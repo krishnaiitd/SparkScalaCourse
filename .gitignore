@@ -1,0 +1,17 @@
+/.bsp/
+target/
+
+/.scalafmt.conf
+
+/.idea
+
+project/
+
+
+out/
+
+
+*.log
+
+.DS_Store
+

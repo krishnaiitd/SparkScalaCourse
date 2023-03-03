@@ -1,4 +1,4 @@
-name := "git push -u origin main"
+name := "SparkScalaCourseUdemy"
 
 version := "0.1"
 
