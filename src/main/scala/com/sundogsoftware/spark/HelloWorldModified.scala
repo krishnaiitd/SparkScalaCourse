@@ -60,11 +60,10 @@ object HelloWorldModified {
     val endOfMonth = getEndOfMonths(resource)
     println(from)
     println(endOfMonth)
-    if (from.after(endOfMonth)) {
+    if (from.after(endOfMonth))
       println("End of month reached")
-    } else {
+    else
       println("Still in the month")
-    }
     spark.stop()
   }
 

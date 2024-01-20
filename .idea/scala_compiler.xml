@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="SparkScalaCourse,git push -u origin main,sparkscalacourse_709" />
+    <profile name="sbt 1" modules="SparkScalaCourse,SparkScalaCourseUdemy,git push -u origin main,sparkscalacourse_709" />
   </component>
 </project>
